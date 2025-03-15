@@ -1,6 +1,7 @@
 NAME    = launch_esp
 SRC     = srcs/esperance.c \
-		  srcs/ft_encryptage.c
+		  srcs/ft_encryptage.c \
+		  srcs/wallets.c
 
 MAKEFLAGS += --no-print-directory
 
