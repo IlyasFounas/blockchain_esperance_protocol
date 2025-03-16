@@ -6,21 +6,11 @@
 /*   By: ilyas <ilyas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 22:41:38 by ilyas             #+#    #+#             */
-/*   Updated: 2025/03/15 11:37:51 by ilyas            ###   ########.fr       */
+/*   Updated: 2025/03/15 16:55:42 by ilyas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "esperance.h"
-
-void	create_keys(t_keys *keys)
-{
-	fill_keys(keys);
-	if (!keys->keys)
-	{
-		ft_putstr_fd("Error\ncheck your RAM please", 2);
-		exit(1);
-	}
-}
 
 void	fill_keys(t_keys *keys)
 {
@@ -42,6 +32,25 @@ void	fill_keys(t_keys *keys)
 			j++;
 		}
 		i++;
+	}
+}
+
+void	create_keys(t_wallet *wallet)
+{
+	int i;
+
+	i = -1;
+	fill_keys(&wallet->own_keys);
+	if (!&wallet->own_keys)
+	{
+		ft_putstr_fd("Error\ncheck your RAM please", 2);
+		exit(1);
+	}
+	while (++i < 3)
+	{
+		write(wallet->fd[0], ft_itoa_esp(wallet->own_keys.keys[i]),
+			ft_strlen(ft_itoa_esp(wallet->own_keys.keys[i])));
+		write(wallet->fd[0], "\n", 1);
 	}
 }
 

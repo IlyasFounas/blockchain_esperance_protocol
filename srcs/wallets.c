@@ -6,7 +6,7 @@
 /*   By: ilyas <ilyas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 11:38:15 by ilyas             #+#    #+#             */
-/*   Updated: 2025/03/15 12:40:31 by ilyas            ###   ########.fr       */
+/*   Updated: 2025/03/15 22:02:19 by ilyas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	create_public_key(t_wallet *wallet)
 	int	r;
 
 	i = -1;
+	wallet->public_key = 0;
 	while (++i < 18)
 	{
 		r = rand();
@@ -65,5 +66,7 @@ void	create_wallet(t_wallet *wallet)
 	wallet->reserve = 0;
 	create_public_key(wallet);
 	create_private_key(wallet);
-    printf("%s\n", wallet->private_key);
+	write_fds(wallet);
+    ft_printf("This is your private key\nDo not share with anyone : ");
+    ft_printf("\n%s\n", wallet->private_key);
 }

@@ -6,7 +6,7 @@
 /*   By: ilyas <ilyas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:19:35 by ifounas           #+#    #+#             */
-/*   Updated: 2025/03/15 12:46:47 by ilyas            ###   ########.fr       */
+/*   Updated: 2025/03/15 16:09:24 by ilyas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define LIBFT_H
 
 # include "ft_printf/ft_printf.h"
+# include "gnl/get_next_line.h"
 # include <limits.h>
 # include <stdint.h>
 # include <stdio.h>

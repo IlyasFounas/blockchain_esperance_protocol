@@ -37,7 +37,9 @@ SRC			=	ft_atoi.c\
 				ft_putendl_fd.c\
 				ft_putnbr_fd.c\
 				ft_printf/ft_printf.c\
-				ft_printf/ft_printf_utils.c 
+				ft_printf/ft_printf_utils.c \
+				gnl/get_next_line.c \
+				gnl/get_next_line_utils.c 
 
 SRC_BONUS	=	ft_lstnew.c\
 				ft_lstadd_front.c\
@@ -62,6 +64,9 @@ $(OBJ_DIR)/%.o: %.c libft.h | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)/$@
 
 $(OBJ_DIR)/%.o: ft_printf/%.c ft_printf/ft_printf.h | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)/$@
+
+$(OBJ_DIR)/%.o: gnl/%.c gnl/get_next_line.h | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)/$@
 
 $(OBJ_DIR):

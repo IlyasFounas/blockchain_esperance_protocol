@@ -6,7 +6,7 @@
 /*   By: ilyas <ilyas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 22:29:43 by ilyas             #+#    #+#             */
-/*   Updated: 2025/03/15 12:59:03 by ilyas            ###   ########.fr       */
+/*   Updated: 2025/03/15 16:52:51 by ilyas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 # include "../libft/libft.h"
 # include <fcntl.h>
+# include <signal.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <time.h>
-# include <signal.h>
 
 typedef struct s_keys
 {
@@ -31,16 +31,17 @@ typedef struct s_keys
 typedef struct s_wallet
 {
 	long int	public_key;
-	char		*private_key;
-	double		reserve;
 	int			fd[3];
+	double		reserve;
+	char		*private_key;
 	t_keys		own_keys;
 }				t_wallet;
 
 // esperance
+void			write_fds(t_wallet *wallet);
 
 // ft_encryptage
-void			create_keys(t_keys *keys);
+void			create_keys(t_wallet *wallet);
 void			fill_keys(t_keys *keys);
 
 // wallets
