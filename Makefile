@@ -14,10 +14,10 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 $(NAME): $(LIBFT) $(OBJ) includes/esperance.h
-	$(CC) $(OBJ) $(LIBFT) -o $(NAME)
+	$(CC) $(OBJ) $(LIBFT) -o $(NAME) -lreadline
 
 $(OBJ_DIR)/%.o: srcs/%.c includes/esperance.h | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(LIBFT): force
 	make -C $(LIBFT_DIR)

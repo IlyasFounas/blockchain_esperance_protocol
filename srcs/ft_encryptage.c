@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_encryptage.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas <ilyas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 22:41:38 by ilyas             #+#    #+#             */
-/*   Updated: 2025/03/15 16:55:42 by ilyas            ###   ########.fr       */
+/*   Updated: 2025/03/27 23:53:06 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "esperance.h"
 
@@ -41,11 +41,11 @@ void	create_keys(t_wallet *wallet)
 
 	i = -1;
 	fill_keys(&wallet->own_keys);
-	if (!&wallet->own_keys)
-	{
-		ft_putstr_fd("Error\ncheck your RAM please", 2);
-		exit(1);
-	}
+	// if (!&wallet->own_keys)
+	// {
+	// 	ft_putstr_fd("Error\ncheck your RAM please", 2);
+	// 	exit(1);
+	// }
 	while (++i < 3)
 	{
 		write(wallet->fd[0], ft_itoa_esp(wallet->own_keys.keys[i]),
